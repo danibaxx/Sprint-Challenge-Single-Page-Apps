@@ -1,6 +1,7 @@
 import React from "react";
-// import { Divider, Tab } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import { NavLink } from "react-router-dom";
+import styled from 'styled-components';
 
 // TODO: Add missing menu/tabs/nav below
 
@@ -33,12 +34,46 @@ import { NavLink } from "react-router-dom";
 
 export default function TabNav() {
   return (
-    <div>
-      <NavLink to='/'>Home Page</NavLink>
-      <NavLink to='/character/'>Characters</NavLink>
-      <NavLink to='/location/'>Locations</NavLink>
-      <NavLink to='/episode/'>Episodes</NavLink>
-    </div>
-  )
+    <CustDiv>
+      <Button color='violet'>
+        <NavLink to='/'
+        activeStyle={{
+          color: 'white'
+        }}>
+          Home Page
+        </NavLink>
+      </Button>
 
+      <Button color='violet'>
+        <NavLink to='/character/'
+          activeStyle={{
+            color: 'white'
+          }}>
+          Characters
+        </NavLink>
+      </Button>
+      <Button color='violet'>
+        <NavLink to='/location/'
+          activeStyle={{
+            color: 'white'
+          }}>
+          Locations
+        </NavLink>
+      </Button>
+      <Button color='violet'>
+        <NavLink to='/episode/'
+          activeStyle={{
+            color: 'white'
+          }}>
+          Episodes
+        </NavLink>
+      </Button>
+    </CustDiv>
+  )
 };
+
+const CustDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+`;

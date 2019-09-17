@@ -2,8 +2,11 @@ import React from "react";
 import CharacterList from "./CharacterList";
 
 const CharacterCard = () => {
-  return <CharacterList />
+  return (
+    <div className='toon'>
+      <CharacterList />
+    </div>
+  )
 }
-
 
 export default CharacterCard;

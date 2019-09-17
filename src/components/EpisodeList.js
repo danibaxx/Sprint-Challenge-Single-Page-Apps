@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 const EpisodeList = () => {
   const [episodes, setEpisodes] = useState([])
@@ -15,15 +16,30 @@ const EpisodeList = () => {
       })
   }, [])
   return (
-    <section className='episode-list'>
+    <ESect className='episode-list'>
       {episodes.map(episode => (
-        <div className='episode' key={episode.id}>
+        <EDiv key={episode.id}>
           <h2>{episode.name}</h2>
           <p>{episode.air_date} {episode.episode}</p>
-        </div>
+        </EDiv>
       ))}
-    </section>
+    </ESect>
   );
 }
 
 export default EpisodeList;
+
+const ESect = styled.section`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+`;
+
+const EDiv = styled.div`
+  border: 2px solid darkorchid;
+  width: 300px;
+  height: 125px;
+  padding: 15px;
+  margin: 15px;
+`;

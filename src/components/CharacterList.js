@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 const CharacterList = () => {
   // TODO: Add useState to track data from useEffect
@@ -20,22 +21,42 @@ const CharacterList = () => {
   }, []);
 
   return (
-    <section className='character-list grid-view'>
+    <CustSect className='character-list'>
       {characters.map(character => (
-        <div className='characters' key={character.id}>
-          <img 
-            className='character-img'
-            src={character.image}
-            alt={character.name}
-          />
-          <h2>{character.name}</h2>
-          <p>{character.species} {character.status}</p>
-          <p>Location: {character.location.name}</p>
-          <p>Origin: {character.origin.name}</p>
-        </div>
-      ))}
-    </section>
+          <ToonCard key={character.id}>
+            <img
+              className='character-img'
+              src={character.image}
+              alt={character.name}
+            />
+              <CDiv>
+                <h2>{character.name}</h2>
+                <p>{character.species} {character.status}</p>
+                <p>Location: {character.location.name}</p>
+                <p>Origin: {character.origin.name}</p>
+              </CDiv>
+          </ToonCard>
+        ))}
+    </CustSect>
   );
 }
 
 export default CharacterList;
+
+const ToonCard = styled.div`
+  border: 2px solid blueviolet;
+  border-radius: 5px;
+  width: 304px;
+  height: 500px;
+  margin-top: 15px;
+`;
+
+const CustSect = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+`;
+
+const CDiv = styled.div`
+  padding: 15px;
+`;
