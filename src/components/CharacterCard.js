@@ -1,5 +1,12 @@
 import React from "react";
+import CharacterList from "./CharacterList";
 
-export default function CharacterCard() {
-  return <span>todo: character</span>;
+const CharacterCard = () => {
+  return (
+    <div className='toon'>
+      <CharacterList />
+    </div>
+  )
 }
+
+export default CharacterCard;
